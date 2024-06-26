@@ -7,7 +7,6 @@ public class Bookings {
 
     public Bookings(int nPlaces) {
         setPlaces(new boolean[nPlaces]);
-
     }
 
     public boolean[] getPlaces() {
