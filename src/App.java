@@ -1,9 +1,12 @@
+import java.util.NoSuchElementException;
+
 public class App {
     public static void main(String[] args) throws Exception {
 
         // es1();
         // es2();
-        es3();
+        // es3();
+        es4();
     }
 
     public static void es1() {
@@ -78,5 +81,45 @@ public class App {
 
         // Stampa saldo attuale
         System.out.println(b1);
+    }
+
+    public static void es4() {
+
+        try {
+            Contact c1 = new Contact("Alessio", "1234567890");
+            Contact c2 = new Contact("Filippo", "192454");
+            Contact c3 = new Contact("Marco", "17854249");
+            Contact c4 = new Contact("Luca", "54545445");
+
+            // Lancio Errore
+            // Contact c5 = new Contact("Error", "545");
+
+            PhoneBook book = new PhoneBook();
+
+            // Aggiunta dei contatti
+            book.addContact(c1);
+            book.addContact(c2);
+            book.addContact(c3);
+            book.addContact(c4);
+
+            // Tutti i contatti
+            System.out.println(book);
+
+            // Rimuovi contatto
+            book.removeContact(c4);
+
+            // Tutti i contatti aggiornata (senza "Luca", "54545445")
+            System.out.println(book);
+
+            // Cerca Contatto
+            System.out.println("Trovato: " + book.findContact("Alessio"));
+            System.out.println(book.findContact("Fischio"));
+
+        } catch (NoSuchElementException e) {
+            System.out.println(e.getMessage());
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
