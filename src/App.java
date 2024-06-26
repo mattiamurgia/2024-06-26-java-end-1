@@ -2,7 +2,8 @@ public class App {
     public static void main(String[] args) throws Exception {
 
         // es1();
-        es2();
+        // es2();
+        es3();
     }
 
     public static void es1() {
@@ -55,5 +56,27 @@ public class App {
 
         // Stampa dettagli con i voti e media
         System.out.println(s1);
+    }
+
+    public static void es3() {
+
+        // Crea conto corrente
+        BankAccount b1 = new BankAccount(0);
+
+        // Deposito denaro
+        b1.addMoney(500);
+        b1.addMoney(500);
+
+        try {
+            b1.removeMoney(100);
+
+            // Lancio Errore
+            // b1.removeMoney(10000);
+        } catch (Exception e) {
+            System.out.println("Errore nel prelievo: " + e.getMessage());
+        }
+
+        // Stampa saldo attuale
+        System.out.println(b1);
     }
 }
