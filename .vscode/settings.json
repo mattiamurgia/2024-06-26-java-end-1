@@ -1,4 +1,7 @@
 {
+    "editor.inlayHints.enabled": "on",
+    "editor.suggest.showTypeParameters": true,
+    "editor.parameterHints.enabled": true,
     "java.project.sourcePaths": ["src"],
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
