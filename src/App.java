@@ -6,7 +6,8 @@ public class App {
         // es1();
         // es2();
         // es3();
-        es4();
+        // es4();
+        es5();
     }
 
     public static void es1() {
@@ -113,7 +114,9 @@ public class App {
 
             // Cerca Contatto
             System.out.println("Trovato: " + book.findContact("Alessio"));
-            System.out.println(book.findContact("Fischio"));
+
+            // Lancio Errore
+            // System.out.println(book.findContact("Fischio"));
 
         } catch (NoSuchElementException e) {
             System.out.println(e.getMessage());
@@ -121,5 +124,66 @@ public class App {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public static void es5() {
+
+        // Seggio
+        ElectoralSeat seat = new ElectoralSeat();
+
+        // Candidati
+        Candidate c1 = new Candidate("Berlusconi");
+        Candidate c2 = new Candidate("Meloni");
+
+        // Elettori
+        Elector e1 = new Elector("Mattia", "Murgia");
+        Elector e2 = new Elector("Filippo", "Sdios");
+        Elector e3 = new Elector("Alessio", "Maria");
+        Elector e4 = new Elector("Giuseppe", "Pdjddk");
+        Elector e5 = new Elector("Giuseppe", "Pdjddk");
+        Elector e6 = new Elector("Giuseppe", "Pdjddk");
+
+        // Aggiunta dei candidati
+        seat.addCandidate(c1);
+        seat.addCandidate(c2);
+
+        // Aggiunta elettori
+        seat.addVoter(e1);
+        seat.addVoter(e2);
+        seat.addVoter(e3);
+        seat.addVoter(e4);
+        seat.addVoter(e5);
+        seat.addVoter(e6);
+
+        try {
+
+            // Votazioni c1
+            seat.votingCandidates(e1, c1);
+            seat.votingCandidates(e3, c1);
+            seat.votingCandidates(e4, c1);
+            seat.votingCandidates(e5, c1);
+
+            // Lancio Errore
+            // seat.voting(e1, c1);
+
+        } catch (Exception e) {
+            System.out.println("Errore: " + e.getMessage());
+        }
+
+        try {
+
+            // Votazioni c2
+            seat.votingCandidates(e2, c2);
+            seat.votingCandidates(e6, c2);
+
+            // Lancio Errore
+            // seat.votingCandidates(e2, c1);
+
+        } catch (Exception e) {
+            System.out.println("Errore: " + e.getMessage());
+        }
+
+        System.out.println("Voti di " + c1.getCandidateName() + ": " + seat.getVotesForCandidate(c1));
+        System.out.println("Voti di " + c2.getCandidateName() + ": " + seat.getVotesForCandidate(c2));
     }
 }

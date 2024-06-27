@@ -31,7 +31,7 @@ public class PhoneBook {
     // Method for searching the contact by name es: 'Alessio'
     public Contact findContact(String contact) throws NoSuchElementException {
         for (Contact c : this.contacts) {
-            if (contact.equals(c.getName())) {
+            if (contact.toLowerCase().equals(c.getName().toLowerCase())) {
                 return c;
             }
         }
