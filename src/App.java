@@ -7,17 +7,18 @@ public class App {
         // es2();
         // es3();
         // es4();
-        es5();
+        // es5();
+        es6();
     }
 
     public static void es1() {
 
         Bookings b = new Bookings(5);
 
-        // Stampa tutti i posti liberi
+        // Print all vacancies
         System.out.println(b);
 
-        // Prenota i posti
+        // Reserve places
         b.bookPlace(0);
         b.bookPlace(1);
         b.bookPlace(2);
@@ -25,16 +26,16 @@ public class App {
         b.bookPlace(4);
         System.out.println(b);
 
-        // Mostra che il posto è occupato
+        // Show place is occupied
         b.bookPlace(0);
         b.cancelBook(0);
         b.cancelBook(4);
         System.out.println(b);
 
-        // Prenotazione di un posto maggiore getPlaces().length
+        // Reservation of a greater place getPlaces().length
         b.bookPlace(6);
 
-        // Verifica se ci sono posti liberi
+        // Check if there are vacancies
         System.out.println();
         System.out.println("-----Free-----");
         b.findFreePlaces();
@@ -42,45 +43,45 @@ public class App {
 
     public static void es2() {
 
-        // Crea Studente
+        // Create Student
         Student s1 = new Student("Alessio", "Dhjfkfj");
 
         try {
-            // Aggiungi voti
+            // Add votes
             s1.addVotes(20);
             s1.addVotes(22);
             s1.addVotes(30);
             s1.addVotes(18);
 
-            // LancioErrore
+            // Launch exception
             // s1.addVotes(5);
         } catch (Exception e) {
             System.out.println("Errore nell'aggiunta del voto: " + e.getMessage());
         }
 
-        // Stampa dettagli con i voti e media
+        // Print details with grades and average
         System.out.println(s1);
     }
 
     public static void es3() {
 
-        // Crea conto corrente
+        // Create current account
         BankAccount b1 = new BankAccount(0);
 
-        // Deposito denaro
+        // Money deposit
         b1.addMoney(500);
         b1.addMoney(500);
 
         try {
             b1.removeMoney(100);
 
-            // Lancio Errore
+            // Launch exception
             // b1.removeMoney(10000);
         } catch (Exception e) {
             System.out.println("Errore nel prelievo: " + e.getMessage());
         }
 
-        // Stampa saldo attuale
+        // Print current balance
         System.out.println(b1);
     }
 
@@ -92,30 +93,29 @@ public class App {
             Contact c3 = new Contact("Marco", "17854249");
             Contact c4 = new Contact("Luca", "54545445");
 
-            // Lancio Errore
+            // Launch exception
             // Contact c5 = new Contact("Error", "545");
 
             PhoneBook book = new PhoneBook();
 
-            // Aggiunta dei contatti
+            // Adding Contacts
             book.addContact(c1);
             book.addContact(c2);
             book.addContact(c3);
             book.addContact(c4);
 
-            // Tutti i contatti
+            // All contacts
             System.out.println(book);
 
-            // Rimuovi contatto
+            // Remove contact
             book.removeContact(c4);
 
-            // Tutti i contatti aggiornata (senza "Luca", "54545445")
-            System.out.println(book);
+            // All contacts updated (without 'Luca', '54545445') System.out.println(book);
 
-            // Cerca Contatto
+            // Search Contact
             System.out.println("Trovato: " + book.findContact("Alessio"));
 
-            // Lancio Errore
+            // Launch exception
             // System.out.println(book.findContact("Fischio"));
 
         } catch (NoSuchElementException e) {
@@ -128,14 +128,14 @@ public class App {
 
     public static void es5() {
 
-        // Seggio
+        // Seat
         ElectoralSeat seat = new ElectoralSeat();
 
-        // Candidati
+        // Candidates
         Candidate c1 = new Candidate("Berlusconi");
         Candidate c2 = new Candidate("Meloni");
 
-        // Elettori
+        // Voters
         Elector e1 = new Elector("Mattia", "Murgia");
         Elector e2 = new Elector("Filippo", "Sdios");
         Elector e3 = new Elector("Alessio", "Maria");
@@ -143,11 +143,11 @@ public class App {
         Elector e5 = new Elector("Giuseppe", "Pdjddk");
         Elector e6 = new Elector("Giuseppe", "Pdjddk");
 
-        // Aggiunta dei candidati
+        // Addition of candidates
         seat.addCandidate(c1);
         seat.addCandidate(c2);
 
-        // Aggiunta elettori
+        // Addition of voters
         seat.addVoter(e1);
         seat.addVoter(e2);
         seat.addVoter(e3);
@@ -157,13 +157,13 @@ public class App {
 
         try {
 
-            // Votazioni c1
+            // Voting c1
             seat.votingCandidates(e1, c1);
             seat.votingCandidates(e3, c1);
             seat.votingCandidates(e4, c1);
             seat.votingCandidates(e5, c1);
 
-            // Lancio Errore
+            // Launch exception
             // seat.voting(e1, c1);
 
         } catch (Exception e) {
@@ -172,11 +172,11 @@ public class App {
 
         try {
 
-            // Votazioni c2
+            // Vote c2
             seat.votingCandidates(e2, c2);
             seat.votingCandidates(e6, c2);
 
-            // Lancio Errore
+            // Launch exception
             // seat.votingCandidates(e2, c1);
 
         } catch (Exception e) {
@@ -185,5 +185,30 @@ public class App {
 
         System.out.println("Voti di " + c1.getCandidateName() + ": " + seat.getVotesForCandidate(c1));
         System.out.println("Voti di " + c2.getCandidateName() + ": " + seat.getVotesForCandidate(c2));
+    }
+
+    public static void es6() {
+
+        // Room creation
+        Room r1 = new Room(150, "Suite");
+        Room r2 = new Room(222, "Family");
+        Room r3 = new Room(100, "Classica");
+
+        // Host creation
+        Guest g1 = new Guest("Mattia", "Murgia", "matt@gmail.com");
+        Guest g2 = new Guest("Marco", "Bhfkkf", "tttt@gmail.com");
+        Guest g3 = new Guest("Filippo", "Sjfkffk", "aaaa@gmail.com");
+
+        // Create reservation
+        // ReservationRoom res = new ReservationRoom(g, r);
+
+        // Create Hotels
+        Hotel h = new Hotel();
+
+        h.addReservetion(r1, g1);
+        h.addReservetion(r2, g2);
+        h.addReservetion(r3, g3);
+
+        System.out.println(h);
     }
 }

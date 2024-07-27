@@ -58,7 +58,7 @@ public class Student {
 
     // Student details
     public String getDetails() {
-        return "Studente: " + getName() + " - " + " Matricola: " + getMatr() + " - " + "Votes: " + getVotes() + " - " + "Media: " + mediaVotes();
+        return "Studente: " + getName() + " - " + " Matricola: " + getMatr() + " - " + "Voti: " + getVotes() + " - " + "Media: " + mediaVotes();
     }
 
     @Override
